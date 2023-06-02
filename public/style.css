@@ -1,0 +1,30 @@
+@font-face {
+	font-family: arkhip;
+	src: url(./assets/fonts/arkhip_font.ttf);
+}
+
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	color: #eeeeee;
+	background: #222222;
+}
+
+canvas-layer {
+	width: 100vw;
+	height: 100vh;
+	background: #333333;
+}
+
+.help-popup {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	background-color: #222222;
+	opacity: 0.9;
+	font-family: arkhip;
+}
