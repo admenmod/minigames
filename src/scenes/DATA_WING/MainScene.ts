@@ -58,6 +58,7 @@ export class MainScene extends Node2D {
 		this.$gridMap.coordinates = true;
 
 		this.$joystick.position.set(gm.screen.buf().div(2).sub(90));
+		this.$joystick.angle_offset = Math.PI/2;
 
 		this.get('Box1')!.position.set(100, -270);
 		this.get('Box1')!.size.inc(4);

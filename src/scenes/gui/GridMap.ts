@@ -38,7 +38,11 @@ export class GridMap extends Node2D {
 
 		// draw grid
 		ctx.beginPath();
-		ctx.lineWidth = this.lineWidth;
+		if(this.lineWidth < 1) {
+			ctx.globalAlpha = this.lineWidth;
+			ctx.lineWidth = 1;
+		} else ctx.lineWidth = this.lineWidth;
+
 		ctx.strokeStyle = this.lineColor;
 
 		for(let dx = vpos.x > 1 ? 1:0; dx < counts.x; dx++) {

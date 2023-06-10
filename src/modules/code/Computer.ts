@@ -1,5 +1,6 @@
 import { Vector2 } from '@ver/Vector2';
 import { EventDispatcher } from '@ver/events';
+import { codeShell } from '@ver/codeShell';
 
 
 const Mineral = {

@@ -1,9 +1,11 @@
+import '@/test';
+/*
 import { Vector2 } from '@ver/Vector2';
 import { EventDispatcher, Event } from '@ver/events';
 import { TouchesController, Touch } from '@ver/TouchesController';
-import { CanvasLayer } from '@ver/CanvasLayer';
 import { MainLoop } from '@ver/MainLoop';
 import { Viewport } from '@ver/Viewport';
+import { HTMLCanvasLayersElement } from '@ver/HTMLCanvasLayersElement';
 
 import { Node } from '@/scenes/Node';
 import { MainScene } from '@/scenes/MainScene';
@@ -16,7 +18,9 @@ import { PhysicsBox2DSystem } from '@/scenes/PhysicsBox2DItem';
 export const appElement = document.querySelector<HTMLDivElement>('#app');
 if(!appElement) throw new Error('app is not found');
 
-export const canvas = new CanvasLayer();
+export const canvas = new HTMLCanvasLayersElement({
+	layers: 'code main back'
+});
 appElement.append(canvas);
 //@ts-ignore
 canvas.ondblclick = () => canvas.webkitRequestFullscreen();
@@ -133,3 +137,4 @@ mainLoop.on('update', dt => {
 	// await import('@/webgl/main');
 	// await import('@/inspector/index');
 })();
+*/

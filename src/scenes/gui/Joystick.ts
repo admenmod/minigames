@@ -19,7 +19,7 @@ export class Joystick extends Node2D {
 	public colors1 = [0, '#223344', 1, '#112233'];
 
 	private _angle: number = 0;
-	private angle_offset: number = Math.PI/2;
+	public angle_offset: number = 0;
 
 	public touch: Touch | null = null;
 

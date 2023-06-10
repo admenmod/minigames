@@ -9,6 +9,7 @@ import { TextNode } from '@/scenes/gui/TextNode';
 import { MainScene as DATA_WING_Scene } from './DATA_WING/MainScene';
 import { MainScene as GAME_CDDA_Scene } from './CDDA/MainScene';
 import { MainScene as Jgame_Scene } from './Jgame/MainScene';
+import { MainScene as Codespace_Scene } from './codespace/MainScene';
 
 import { gm } from '@/global';
 
@@ -17,7 +18,8 @@ export class MainScene extends Node2D {
 	public TREE() { return {
 		'DATA_WING': Button,
 		'gameCDDA': Button,
-		'Jgame': Button
+		'Jgame': Button,
+		'codespace': Button
 	}}
 
 
@@ -37,7 +39,7 @@ export class MainScene extends Node2D {
 	}
 
 	protected _ready(this: MainScene): void {
-		this.getChild('DATA_WING')!.position.add(0, -20);
+		this.getChild('DATA_WING')!.position.set(0, -60);
 		this.getChild('DATA_WING')!.text = 'DATA WING';
 		this.getChild('DATA_WING')!.on('pressed', async () => {
 			const parent = this.parent!;
@@ -52,7 +54,7 @@ export class MainScene extends Node2D {
 			this.destroy();
 		});
 
-		this.getChild('gameCDDA')!.position.add(0, 20);
+		this.getChild('gameCDDA')!.position.set(0, -20);
 		this.getChild('gameCDDA')!.text = 'GAME CDDA';
 		this.getChild('gameCDDA')!.on('pressed', async () => {
 			const parent = this.parent!;
@@ -67,7 +69,7 @@ export class MainScene extends Node2D {
 			this.destroy();
 		});
 
-		this.getChild('Jgame')!.position.add(0, 60);
+		this.getChild('Jgame')!.position.set(0, 20);
 		this.getChild('Jgame')!.text = 'Jgame';
 		this.getChild('Jgame')!.on('pressed', async () => {
 			const parent = this.parent!;
@@ -81,30 +83,20 @@ export class MainScene extends Node2D {
 
 			this.destroy();
 		});
-	}
 
-	protected _process(this: MainScene, dt: number): void {
-		;
-	}
+		this.getChild('codespace')!.position.set(0, 60);
+		this.getChild('codespace')!.text = 'codespace';
+		this.getChild('codespace')!.on('pressed', async () => {
+			const parent = this.parent!;
+			parent.removeChild(this.name);
 
-	// protected _draw(viewport: Viewport): void {
-	// 	const ctx = viewport.ctx;
-	// 	// ctx.resetTransform();
-	// 	// ctx.translate(viewport.size.x/2, viewport.size.y/2);
-	//
-	// 	const center = viewport.size.buf().div(2).add(50, 50);
-	// 	const s = new Vector2(10, 10);
-	// 	const a1 = viewport.transformFromScreenToViewport(center.buf().add(-s.x, -s.y));
-	// 	const a2 = viewport.transformFromScreenToViewport(center.buf().add(+s.x, -s.y));
-	// 	const a3 = viewport.transformFromScreenToViewport(center.buf().add(+s.x, +s.y));
-	// 	const a4 = viewport.transformFromScreenToViewport(center.buf().add(-s.x, +s.y));
-	//
-	// 	ctx.beginPath();
-	// 	ctx.fillStyle = '#ffff00';
-	// 	ctx.moveTo(a1.x, a1.y);
-	// 	ctx.lineTo(a2.x, a2.y);
-	// 	ctx.lineTo(a3.x, a3.y);
-	// 	ctx.lineTo(a4.x, a4.y);
-	// 	ctx.fill();
-	// }
+			await Codespace_Scene.load();
+			const scene = new Codespace_Scene();
+			await scene.init();
+
+			parent!.addChild(scene);
+
+			this.destroy();
+		});
+	}
 }

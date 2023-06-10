@@ -86,6 +86,9 @@ export class MainScene extends Node2D {
 		this.$joystickL.position.set(size.buf().inc(-1, 1).sub(-cs, cs));
 		this.$joystickR.position.set(size.buf().sub(cs));
 
+		this.$joystickL.angle_offset = Math.PI/2;
+		this.$joystickR.angle_offset = Math.PI/2;
+
 		this.$btnAction.position.add(0, size.y - 30);
 
 		this.get('Box1')!.position.set(100, -270);

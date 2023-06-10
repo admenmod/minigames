@@ -6,7 +6,7 @@ import { Node2D } from '@/scenes/nodes/Node2D';
 
 export class TextNode extends Node2D {
 	protected _lines: string[] = [''];
-	public get lines() { return this._text; }
+	public get lines() { return this._lines; }
 
 	protected _text: string = '';
 	public get text() { return this._text; }

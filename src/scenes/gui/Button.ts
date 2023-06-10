@@ -20,6 +20,8 @@ export class Button extends Node2D {
 	public style: Partial<CSSStyleRule['style']> = {};
 
 	protected async _init(this: Button): Promise<void> {
+		await super._init();
+
 		const fn = Input.on('press', tpos => {
 			const pos = this.globalPosition;
 			const size = this.size;
